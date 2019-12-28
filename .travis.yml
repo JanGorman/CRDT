@@ -1,4 +1,7 @@
 language: objective-c
 osx_image: xcode11.3
 script:
-  - swift test
+  - swift package generate-xcodeproj
+  - xcodebuild test -scheme CRDT -destination platform="macOS" -enableCodeCoverage YES -derivedDataPath .build/derivedData
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
