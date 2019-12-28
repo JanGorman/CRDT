@@ -41,7 +41,6 @@ final class LWWSetTests: XCTestCase {
     let merged = first.merge(with: second)
 
     let mergedAddSet = merged.addSet.lookup()
-    print(mergedAddSet)
     XCTAssertEqual(mergedAddSet.count, 5)
     XCTAssertTrue(mergedAddSet.contains(.init(timestamp: 1, element: "🐒")))
     XCTAssertTrue(mergedAddSet.contains(.init(timestamp: 3, element: "🐒")))
